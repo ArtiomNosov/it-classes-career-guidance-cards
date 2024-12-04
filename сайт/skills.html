@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+
+	<base target="_self"> <!-- Тип ссылки (открывает на той же странице -->
+	
+	<title>Навыки</title>
+	<!-- Заголовок --> 
+	
+	<!-- Это стиль текста: цвет, размер, шрифт -->
+	<style>
+		.flex-container {
+		display: flex;
+		justify-content: flex-start; /* Сдвигает элементы влево */
+		align-items: center; /* Выравнивание по вертикали */
+		}
+
+		.flex-item {
+		flex-grow: 0.4; /* Элемент занимает доступное пространство */
+		margin-right: 10px; /* Отступ между элементами */
+		}
+
+		.flex-center {
+		text-align: center;
+		display: flex;
+		align-items: center; /* Выравнивание по вертикали */
+}
+
+		.btn{
+	   	background-color: #35393d;
+	  	border: none;
+	  	color: white;
+	  	padding: 10px 20px;
+	  	text-align: center;
+	  	text-decoration: none;
+	  	display: inline-block;
+	  	font-size: 16px;
+	   	border-radius: 5px;
+	  	margin: 10px 0;
+	  	cursor: pointer;
+		transition: 0.5s;
+	 	}
+		
+		.btn:hover{
+			background: #102863;
+		}
+		p {
+			word-spacing: 8px; /* Увеличивает расстояние между словами на ... пикселей */
+		  }
+		  		#search-bar {
+	      float: right; /* справа */
+	      margin-top: -50px; /* Отступ от заголовка */
+	      margin-right: 20px; /* Отступ от края */
+	    }
+
+	    #search-input {
+	      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	      transition: 0.3s;
+	      padding: 8px;
+	      border: 2px solid #ccc;
+	      border-radius: 5px;
+	      width: 400px;
+	    }
+
+	    #search-button {
+	      padding: 8px 15px;
+	      background-color: #35393d;
+	      color: white;
+	      border: none;
+	      border-radius: 5px;
+	      cursor: pointer;
+	    }
+		#search-button:hover{
+			background: #102863;
+		}
+		#search-input:hover {
+		 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		 }
+	</style>
+	
+	<style type="text/css">
+		/*задаём общие параметры для всей страницы*/
+		body {
+		  text-align: left;
+		  margin: 10;
+		  font-family: Verdana, Arial, sans-serif;
+		  font-size: 20px;
+		}
+		.flex-container {
+		display: flex; /* Ключевое свойство */
+		}
+
+		.flex-item {
+		margin: 10px; 
+		}
+	</style>
+
+	
+</head>
+
+	<body>
+		<h1><a href="main.html">bookTopia</a></h1>
+		<!-- часть поиска начало -->
+	    <div id="search-bar">
+	      <input type="text" id="search-input" placeholder="Поиск...">
+	      <button id="search-button">Найти</button>
+	    </div>
+	    <!-- часть поиска конец -->
+		<h2>Тестировщик ПО</h2>
+		<p>Отвечает за качество программного обеспечения. Его задача – убедиться, что продукт работает так, как задумано, и соответствует всем требованиям.</p>
+			<h3>Требуемые навыки</h3>
+		
+		<div class="flex-container">
+			<div class="flex-item">Знание разных ОС</div>
+			<div class="flex-item flex-center">тест не пройден</div>
+			<form action="test.html">
+			  <button class="btn">Перейти к тесту по навыку</button>
+			</form>
+		</div>
+		<br>
+		<br>
+		<div class="flex-container">  
+			<div class="flex-item">Аналитические навыки</div>
+			<div class="flex-item flex-center">8/10</div>
+			<form action="test.html">
+			  <button class="btn">Перейти к тесту по навыку</button>
+			</form>
+		</div>
+	</body>
+	<script>
+    // нажатие кнопки поиска
+    document.getElementById("search-button").addEventListener("click", function() {
+      let searchTerm = document.getElementById("search-input").value;
+      // логика поиска по содержанию карточек
+      // alert("Поиск по запросу: " + searchTerm);
+
+      // Примерный поиск
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.querySelector('h4');
+        const description = card.querySelector('p');
+        const textToSearch = title.textContent + description.textContent;
+        if(textToSearch.toLowerCase().includes(searchTerm.toLowerCase())){
+          card.style.display = 'block';
+        } else{
+          card.style.display = 'none';
+        }
+      });
+
+    });
+
+  </script>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+{% extends 'base.html' %}
+<html lang="ru">
+<head>
+    {% block title %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Описание навыка знание разных ОС</title>
+    <style>
+        		.btn{
+	   	background-color: #35393d;
+	  	border: none;
+	  	color: white;
+	  	padding: 20px 60px;
+	  	text-align: center;
+	  	text-decoration: none;
+	  	display: inline-block;
+	  	font-size: 16px;
+	   	border-radius: 5px;
+	  	margin: 10px 0;
+	  	cursor: pointer;
+		transition: 0.5s;
+	 	}
+
+		.btn:hover{
+			background: #102863;
+		}
+		p {
+			word-spacing: 8px; /* Увеличивает расстояние между словами на ... пикселей */
+		  }
+		  		#search-bar {
+	      float: right; /* справа */
+	      margin-top: -50px; /* Отступ от заголовка */
+	      margin-right: 20px; /* Отступ от края */
+	    }
+        p {
+        font-size: 23px; /* Adjust as needed */
+    }
+
+        #search-bar {
+	      float: right; /* справа */
+	      margin-top: -45px; /* Отступ от заголовка */
+	      margin-right: 20px; /* Отступ от края */
+	    }
+
+	    #search-input {
+	      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	      transition: 0.3s;
+	      padding: 8px;
+	      border: 2px solid #ccc;
+	      border-radius: 5px;
+	      width: 400px;
+	    }
+
+	    #search-button {
+	      padding: 8px 15px;
+	      background-color: #35393d;
+	      color: white;
+	      border: none;
+	      border-radius: 5px;
+	      cursor: pointer;
+	    }
+		#search-button:hover{
+			background: #102863;
+		}
+		#search-input:hover {
+		 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		 }
+		  .search-results {
+    margin-top: 20px;
+  }
+  .search-result {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer; /* Добавляем курсор, чтобы было понятнее что кликабельно*/
+    border-radius: 5px;
+  }
+
+
+	 </style>
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <h1><a href="/">bookTopia</a></h1>
+      <!-- часть поиска начало -->
+    <div id="search-bar">
+      <input type="text" id="search-input" placeholder="Поиск...">
+      <button id="search-button">Найти</button>
+    </div>
+    <!-- часть поиска конец -->
+    <h1><b>Навык: Знание разных ОС</b></h1>
+    <p>Предполагает, что специалист владеет основными понятиями и принципами работы различных ОС, такими как Windows, macOS, Linux и другими.</p>
+    <h2>Поднавыки</h2>
+    <div id="skills">
+      <p>1.Знание основных принципов работы различных ОС.</p>
+      <p>2.Умение работать с командной строкой и терминалом в разных ОС.</p>
+      <p>3.Понимание различий в интерфейсах и функциональности разных ОС.</p>
+      <p>4.Способность проводить тестирование на разных платформах.</p>
+      <p>5.Умение выявлять и документировать ошибки и несоответствия.</p>
+    </div>
+    <div>
+    <form action="/profession>/skills>">
+			  <button class="btn">Перейти к тесту по навыку</button>
+    </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

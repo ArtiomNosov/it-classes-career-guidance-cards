@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="ru">
+<div>
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+<head>
+	{% block title %}
+	<meta charset="utf-8">
+	<base target="_self"> <!-- Тип ссылки (открывает на той же странице) -->
+	<title>bookTopia</title>
+	<!-- Заголовок --> 
+	
+	<!-- Это стиль текста: цвет, размер, шрифт -->
+	<style>
+		.btn {
+	   	background-color: #35393d;
+	   	border: none;
+	   	color: white;
+	   	padding: 10px 20px;
+	   	text-align: center;
+	   	text-decoration: none;
+	   	display: inline-block;
+	   	font-size: 16px;
+	   	border-radius: 5px;
+	  	 margin: 10px 0;
+	   	cursor: pointer;
+		transition: 0.5s;
+	 	}
+		
+		.btn:hover{
+			background: #102863;
+		}
+		
+	 	.card-container {
+		 display: flex; /* Размещаем карточки в одну строку */
+		 justify-content: space-around; /* Равномерно распределяем карточки */
+		 flex-wrap: wrap; /* Оборачиваем карточки на новую строку, если не хватает места */
+		}
+			 
+		 .card {
+			 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			 transition: 0.3s;
+			 border-radius: 5px;
+			 width: 600px;
+			 margin: 20px auto;
+			 text-align: center;
+		 }
+		 
+		 .card:hover {
+		 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		 }
+	 
+		 .container {
+		 padding: 2px 16px;
+		 }
+		#search-bar {
+	      float: right; /* справа */
+	      margin-top: -45px; /* Отступ от заголовка */
+	      margin-right: 20px; /* Отступ от края */
+	    }
+
+	    #search-input {
+	      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	      transition: 0.3s;
+	      padding: 8px;
+	      border: 2px solid #ccc;
+	      border-radius: 5px;
+	      width: 400px;
+	    }
+
+	    #search-button {
+	      padding: 8px 15px;
+	      background-color: #35393d;
+	      color: white;
+	      border: none;
+	      border-radius: 5px;
+	      cursor: pointer;
+	    }
+		#search-button:hover{
+			background: #102863;
+		}
+		#search-input:hover {
+		 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		 }
+		  .search-results {
+    margin-top: 20px;
+  }
+  .search-result {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer; /* Добавляем курсор, чтобы было понятнее что кликабельно*/
+    border-radius: 5px;
+  }
+
+
+	 </style>
+	{% endblock %}
+</head>
+
+<body>
+{% block body %}
+	<h1><a href="/">bookTopia</a></h1>
+  <!-- часть поиска начало -->
+    <div id="search-bar">
+      <input type="text" id="search-input" placeholder="Поиск...">
+      <button id="search-button">Найти</button>
+    </div>
+    <!-- часть поиска конец -->
+    <!-- код для карточек начало -->
+	<div class="card-container">
+		<div class="card">
+		  <div class="container">
+			<h4><b>Тестировщик ПО</b></h4>
+			<p>Отвечает за качество программного обеспечения. Его задача – убедиться, что продукт работает так, как задумано, и соответствует всем требованиям.</p>
+			<a href="/profession"><button class="btn">Перейти к навыкам</button></a>
+		  </div>
+		</div>
+	  
+		<div class="card">
+		  <div class="container">
+			<h4><b>Ещё одна карточка</b></h4>
+			<p>Пример текста</p>
+			<a href="/profession"><button class="btn">Перейти к навыкам</button></a>
+		  </div>
+		</div>
+	  
+		<div class="card">
+		  <div class="container">
+			<h4><b>Ещё одна карточка</b></h4>
+			<p>Пример текста</p>
+			<a href="/profession"><button class="btn">Перейти к навыкам</button></a>
+		  </div>
+		</div>
+	  </div>
+	  <!-- код для карточек конец -->
+	</body>
+	<script>
+    // нажатие кнопки поиска
+    document.getElementById("search-button").addEventListener("click", function() {
+      let searchTerm = document.getElementById("search-input").value;
+      // логика поиска по содержанию карточек
+      // alert("Поиск по запросу: " + searchTerm);
+
+      // Примерный поиск
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.querySelector('h4');
+        const description = card.querySelector('p');
+        const textToSearch = title.textContent + description.textContent;
+        if(textToSearch.toLowerCase().includes(searchTerm.toLowerCase())){
+          card.style.display = 'block';
+        } else{
+          card.style.display = 'none';
+        }
+      });
+
+    });
+
+  </script>
+{% endblock %}
+</div>
+</html>
